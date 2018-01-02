@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class RecyclerViewActivity extends Activity {
 
         setContentView(R.layout.recyclerview_activity);
 
-        recyclerView=(RecyclerView)findViewById(R.id.rv);
+        recyclerView=findViewById(R.id.recyclerView);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(llm);

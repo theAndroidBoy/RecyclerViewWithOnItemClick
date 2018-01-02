@@ -12,9 +12,9 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.PersonViewHolder> {
 
-    CustomItemClickListener listener;
+    private CustomItemClickListener listener;
 
-    public static class PersonViewHolder extends RecyclerView.ViewHolder {
+    static class PersonViewHolder extends RecyclerView.ViewHolder {
 
         CardView cardView;
         TextView personName;
@@ -23,14 +23,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         PersonViewHolder(View itemView) {
             super(itemView);
-            cardView= (CardView)itemView.findViewById(R.id.cv);
-            personName = (TextView)itemView.findViewById(R.id.person_name);
-            personAge = (TextView)itemView.findViewById(R.id.person_age);
-            personPhoto = (ImageView)itemView.findViewById(R.id.person_photo);
+            cardView= itemView.findViewById(R.id.cv);
+            personName = itemView.findViewById(R.id.person_name);
+            personAge = itemView.findViewById(R.id.person_age);
+            personPhoto = itemView.findViewById(R.id.person_photo);
         }
     }
 
-    List<Person> persons;
+    private List<Person> persons;
 
     RecyclerViewAdapter(List<Person> persons, CustomItemClickListener listener){
         this.persons = persons;
@@ -44,15 +44,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public PersonViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item, viewGroup, false);
-        final PersonViewHolder pvh = new PersonViewHolder(v);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item,
+                viewGroup, false);
+        final PersonViewHolder personViewHolder = new PersonViewHolder(v);
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onItemClick(v, pvh.getPosition());
+               listener.onItemClick(v, personViewHolder.getAdapterPosition());
             }
         });
-        return pvh;
+        return personViewHolder;
     }
 
     @Override
