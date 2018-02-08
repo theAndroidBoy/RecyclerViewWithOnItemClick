@@ -44,7 +44,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public PersonViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item,
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.placeorder_item,
                 viewGroup, false);
         final PersonViewHolder personViewHolder = new PersonViewHolder(v);
         v.setOnClickListener(new View.OnClickListener() {

@@ -18,7 +18,7 @@ public class RecyclerViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.recyclerview_activity);
+        setContentView(R.layout.placeorder_activity);
 
         recyclerView=findViewById(R.id.recyclerView);
 
